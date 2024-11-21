@@ -1,0 +1,43 @@
+# Maven build klasörleri
+target/
+bin/
+
+# Eclipse proje dosyaları
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA dosyaları
+.idea/
+*.iml
+*.iws
+
+# NetBeans proje dosyaları
+nbproject/
+nb-configuration.xml
+
+# Log dosyaları
+*.log
+log4j.xml
+
+# Derlenmiş Java sınıfları
+*.class
+
+# Paket dosyaları
+*.jar
+*.war
+*.ear
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Bağımlılık yönetimi
+dependency-reduced-pom.xml
+
+# Kişisel yapılandırma dosyaları
+*.properties
+
+# Geçici dosyalar
+*~
+.*.swp
