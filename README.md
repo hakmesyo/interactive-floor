@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java Version](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 [![Processing](https://img.shields.io/badge/Processing-4.3-blue.svg)](https://processing.org/)
+[![Open Jazari Library](https://github.com/hakmesyo/OJL/ojl_orange.svg)](https://github.com/hakmesyo/OJL.git)
 
 An interactive floor system that uses infrared camera tracking for creating immersive installations and interactive experiences. The system detects players using blob detection algorithms and creates real-time visual responses to their movements.
 
@@ -40,7 +41,7 @@ An interactive floor system that uses infrared camera tracking for creating imme
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/interactive-floor.git
+git clone https://github.com/hakmesyo/interactive-floor.git
 cd interactive-floor
 ```
 
@@ -136,7 +137,7 @@ If you use this project in your research, please cite:
   title = {Interactive Floor System},
   year = {2024},
   publisher = {GitHub},
-  url = {https://github.com/yourusername/interactive-floor}
+  url = {https://github.com/hakmesyo/interactive-floor}
 }
 ```
 
@@ -156,5 +157,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Contact
 
-- Your Name - [your.email@example.com](mailto:your.email@example.com)
-- Project Link: [https://github.com/yourusername/interactive-floor](https://github.com/yourusername/interactive-floor)
+- Your Name - [hakmesyo@gmail.com](mailto:hakmesyo@gmail.com)
+- Your Name - [musa.atas@siirt.edu.tr](mailto:musa.atas@siirt.edu.tr)
+- Project Link: [https://github.com/hakmesyo/interactive-floor](https://github.com/hakmesyo/interactive-floor)
