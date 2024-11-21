@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java Version](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 [![Processing](https://img.shields.io/badge/Processing-4.3-blue.svg)](https://processing.org/)
-[![Open Jazari Library](https://github.com/hakmesyo/OJL/ojl_orange.svg)](https://github.com/hakmesyo/OJL.git)
+[![Open Jazari Library](https://github.com/hakmesyo/OJL/blob/master/ojl_orange.svg)](https://github.com/hakmesyo/OJL.git)
 
 An interactive floor system that uses infrared camera tracking for creating immersive installations and interactive experiences. The system detects players using blob detection algorithms and creates real-time visual responses to their movements.
 
