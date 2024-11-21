@@ -12,9 +12,6 @@ bin/
 *.iml
 *.iws
 
-# NetBeans proje dosyaları
-nbproject/
-nb-configuration.xml
 
 # Log dosyaları
 *.log
