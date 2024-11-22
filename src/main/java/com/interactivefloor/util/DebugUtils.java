@@ -180,6 +180,30 @@ public class DebugUtils {
     }
 
     /**
+     * Draws camera view bounds for debugging
+     *
+     * @param app Processing app instance
+     * @param inputManager Input manager instance for camera dimensions
+     */
+    public static void drawCameraBounds(PApplet app, com.interactivefloor.core.InputManager inputManager) {
+        app.pushStyle();
+        app.noFill();
+        app.stroke(255, 0, 0); // Kırmızı çerçeve
+        app.strokeWeight(2);
+
+        // Kamera görüş alanını çiz
+        app.rect(0, 0, inputManager.getCameraWidth(), inputManager.getCameraHeight());
+
+        // Ekran boyutlarını göster
+        app.fill(255, 255, 0);
+        app.textSize(12);
+        app.text("Camera: " + inputManager.getCameraWidth() + "x" + inputManager.getCameraHeight(), 10, inputManager.getCameraHeight() + 20);
+        app.text("Screen: " + app.width + "x" + app.height, 10, inputManager.getCameraHeight() + 40);
+
+        app.popStyle();
+    }
+
+    /**
      * Draws memory usage graph in the corner.
      *
      * @param app Processing app instance
