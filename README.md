@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java Version](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
-[![Processing](https://img.shields.io/badge/Processing-4.3-blue.svg)](https://processing.org/)
+[![Processing](https://img.shields.io/badge/Processing-3.3.7-blue.svg)](https://processing.org/)
 [![Open Jazari Library](https://github.com/hakmesyo/OJL/blob/master/ojl_orange.svg)](https://github.com/hakmesyo/OJL.git)
 
 An interactive floor system that uses infrared camera tracking for creating immersive installations and interactive experiences. The system detects players using blob detection algorithms and creates real-time visual responses to their movements.
@@ -30,15 +30,23 @@ An interactive floor system that uses infrared camera tracking for creating imme
 
 ## 🔧 System Requirements
 
-- Java 17 or higher
-- Processing 4.3
+- Java 17 (recommended and tested version)
+- Processing 3.3.7
 - Webcam with infrared capabilities
 - Projector for display
 - Minimum resolution: 640x480
 - Recommended CPU: Intel i5 or equivalent
 
+### Linux Users Additional Requirements
+For Linux systems, install these libraries:
+```bash
+sudo apt-get update
+sudo apt-get install libgluegen-rt-java libjogamp-all-platforms
+```
+
 ## 📋 Installation
 
+### Standard Installation
 1. **Clone the repository**
 ```bash
 git clone https://github.com/hakmesyo/interactive-floor.git
@@ -47,15 +55,34 @@ cd interactive-floor
 
 2. **Install dependencies**
 ```bash
-# Using Maven
 mvn install
 ```
 
 3. **Configure your setup**
 ```bash
-# Copy example configuration
 cp config.example.json config.json
 # Edit configuration file with your settings
+```
+
+### Linux Installation Steps
+1. Set JAVA_HOME to JDK 17:
+```bash
+export JAVA_HOME=/path/to/jdk17
+```
+
+2. Follow the standard installation steps above
+
+### Docker Support (Build Verification Only)
+Note: Docker is provided only for build verification. Camera and display features require direct installation.
+
+1. Build Docker image:
+```bash
+docker build -t interactive-floor .
+```
+
+2. Run container:
+```bash
+docker run interactive-floor
 ```
 
 ## 🚀 Quick Start
