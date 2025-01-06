@@ -128,6 +128,7 @@ Detailed documentation is available in the [docs](docs/) directory:
 - [Architecture Overview](docs/architecture.md)
 - [Animation System](docs/animations.md)
 - [API Reference](docs/api.md)
+- [Contributing Guidelines](docs/contributing.md)
 
 ## 🎨 Creating Custom Animations
 
