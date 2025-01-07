@@ -21,7 +21,7 @@
 - USB 3.0 port for camera
 
 ### Physical Space
-- Minimum area: 3x3 meters
+- Minimum area: 4x3 meters
 - Flat, light-colored surface
 - Controlled lighting conditions
 
