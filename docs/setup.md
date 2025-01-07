@@ -41,6 +41,7 @@ For Windows:
 ### 2. Dependencies
 - Processing 3.3.7
 - Maven (for building)
+- Netbeans IDE (optional)
 
 ### 3. Project Setup
 ```bash
