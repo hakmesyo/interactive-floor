@@ -73,16 +73,10 @@ public class InteractiveFloor extends PApplet {
             inputManager.initialize();
 
             // Register animations
-            ParticleAnimation particleAnim = new ParticleAnimation();
-            animationManager.registerAnimation("particles", particleAnim);
+            animationManager.registerAnimation("particles", new ParticleAnimation());
             animationManager.registerAnimation("water", new WaterAnimation());
             animationManager.registerAnimation("fire", new FireAnimation());
-
-            // Set default animation
             animationManager.setActiveAnimation("particles");
-
-            // Menüyü başlangıçta açık yap
-            animationManager.showMenu = true; // Bu satırı ekleyin
 
             // Play intro sound
             soundManager.playSound("intro");
@@ -104,35 +98,24 @@ public class InteractiveFloor extends PApplet {
 
             if (logoAnimation.isComplete()) {
                 introComplete = true;
-                animationManager.showMenu = true;  // Direkt true yapıyoruz
+                // Open menu when intro ends
+                animationManager.toggleMenu();
             }
             return;
         }
 
         // Normal application flow
-        background(255);
+        background(0);
 
         try {
-            // Mouse kontrolü için animasyon güncellemesi
-            animationManager.update(this, null);
-
-            // Mouse menü kontrolü
-            animationManager.updateMenuSelection(null);
-
-            // Player kontrollerine geçmeden önce player listesini al
+            // Update input and get players
             List<Player> players = inputManager.updatePlayers();
 
-            // Eğer player varsa onlar için güncelleme yap
-            if (players != null && !players.isEmpty()) {
-                for (Player player : players) {
-                    if (player != null) {  // Ek null kontrolü
-                        animationManager.update(this, player);
-                        animationManager.updateMenuSelection(player);
-                    }
-                }
+            // Update and draw animations
+            for (Player player : players) {
+                animationManager.update(this, player);
+                animationManager.updateMenuSelection(player);
             }
-
-            // En son olarak çizimi yap
             animationManager.draw(this);
 
             // Show debug information if enabled
@@ -150,39 +133,7 @@ public class InteractiveFloor extends PApplet {
 
         } catch (Exception e) {
             System.err.println("Runtime error: " + e.getMessage());
-            e.printStackTrace();  // Daha detaylı hata bilgisi için
         }
-    }
-
-    private void drawStatusMessage() {
-        pushStyle();
-
-        // Panel dimensions
-        int panelWidth = 300;
-        int panelHeight = 100;
-        int centerX = width / 2 - panelWidth / 2;
-        int centerY = height / 2 - panelHeight / 2;
-
-        // Outer rectangle
-        fill(50, 50, 100, 230);
-        stroke(200, 200, 255);
-        strokeWeight(3);
-        rect(centerX, centerY, panelWidth, panelHeight, 15);
-
-        // Inner rectangle
-        fill(30, 30, 60, 230);
-        noStroke();
-        float innerPadding = 10;
-        rect(centerX + innerPadding, centerY + innerPadding,
-                panelWidth - 2 * innerPadding, panelHeight - 2 * innerPadding, 10);
-
-        // Message
-        fill(255);
-        textAlign(CENTER, CENTER);
-        textSize(24);
-        text(statusMessage, width / 2, height / 2);
-
-        popStyle();
     }
 
     private void drawDebugInfo() {
@@ -264,6 +215,37 @@ public class InteractiveFloor extends PApplet {
         text("D: Toggle Debug  |  M: Menu  |  S: Sound", x, y);
         y += lineHeight * 0.8;
         text("+/-: Volume  |  ESC: Exit", x, y);
+
+        popStyle();
+    }
+
+    private void drawStatusMessage() {
+        pushStyle();
+
+        // Panel dimensions
+        int panelWidth = 300;
+        int panelHeight = 100;
+        int centerX = width / 2 - panelWidth / 2;
+        int centerY = height / 2 - panelHeight / 2;
+
+        // Outer rectangle
+        fill(50, 50, 100, 230);
+        stroke(200, 200, 255);
+        strokeWeight(3);
+        rect(centerX, centerY, panelWidth, panelHeight, 15);
+
+        // Inner rectangle
+        fill(30, 30, 60, 230);
+        noStroke();
+        float innerPadding = 10;
+        rect(centerX + innerPadding, centerY + innerPadding,
+                panelWidth - 2 * innerPadding, panelHeight - 2 * innerPadding, 10);
+
+        // Message
+        fill(255);
+        textAlign(CENTER, CENTER);
+        textSize(24);
+        text(statusMessage, width / 2, height / 2);
 
         popStyle();
     }

@@ -29,70 +29,26 @@ public class ParticleAnimation implements Animation, PlayerListener {
     private float particleSize = 8.0f;
     private int particleColor;
 
-    private float lastMouseX;
-    private float lastMouseY;
-    private float mouseVelocityX;
-    private float mouseVelocityY;
-
     /**
      * Creates a new ParticleAnimation instance.
      */
     public ParticleAnimation() {
         this.particles = new ArrayList<>();
-        //this.particleColor = 0xFFFFFFFF; // White by default
-        //this.particleColor = 0xFFFF8C00; // Orange
-        this.particleColor = 0xFF00FF00; // green
-
+        this.particleColor = 0xFFFFFFFF; // White by default
     }
 
     @Override
     public void update(PApplet app, Player player) {
-        // Her zaman mouse pozisyonunda particle oluştur, hareket olmasa bile
-        createParticlesForMouse(app, 0, 0); // Varsayılan hız 0 olarak verildi
-        
-        // Mouse hareketi varsa, hıza bağlı particle'lar da ekle
-        float mouseVelocityX = app.mouseX - lastMouseX;
-        float mouseVelocityY = app.mouseY - lastMouseY;
-        float mouseSpeed = PApplet.mag(mouseVelocityX, mouseVelocityY);
-        
-        if (mouseSpeed > 0.1f) {
-            createParticlesForMouse(app, mouseVelocityX, mouseVelocityY);
+        // Create new particles based on player movement
+        float speed = PApplet.mag(player.getX(), player.getY());
+        if (speed > 0.1f) {
+            createParticlesForPlayer(player, app);
         }
 
-        // Player için particle'ları oluştur
-        if (player != null) {
-            float speed = PApplet.mag(player.getX(), player.getY());
-            if (speed > 0.1f) {
-                createParticlesForPlayer(player, app);
-            }
-        }
-
-        lastMouseX = app.mouseX;
-        lastMouseY = app.mouseY;
-
+        // Update existing particles
         updateParticles();
     }
 
-    private void createParticlesForMouse(PApplet app, float velocityX, float velocityY) {
-        if (particles.size() < MAX_PARTICLES) {
-            for (int i = 0; i < PARTICLES_PER_UPDATE; i++) {
-                float angle = app.random(PApplet.TWO_PI);
-                float speed = BASE_SPEED * speedMultiplier * app.random(0.5f, 1.5f);
-
-                Particle particle = new Particle(
-                    app.mouseX,
-                    app.mouseY,
-                    PApplet.cos(angle) * speed + velocityX * 0.2f,
-                    PApplet.sin(angle) * speed + velocityY * 0.2f,
-                    particleSize * app.random(0.5f, 1.0f),
-                    particleLifespan
-                );
-
-                particles.add(particle);
-            }
-        }
-    }
-    
     @Override
     public void draw(PApplet app) {
         app.pushStyle();
